@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kotoba — Interactive Japanese Translator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;700&amp;family=Plus+Jakarta+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline-variant": "#c7c5cc",
+                        "on-surface": "#1a1a1a",
+                        "tertiary-fixed": "#e1e1f3",
+                        background: "#fdf8f8",
+                        "on-tertiary-container": "#444654",
+                        "surface-container": "#ffffff",
+                        "on-tertiary": "#1a1a1a",
+                        "on-primary-container": "#360c19",
+                        "on-primary-fixed-variant": "#6b3743",
+                        "surface-variant": "#f4f0f0",
+                        "on-primary-fixed": "#360c19",
+                        "secondary-fixed-dim": "#45465f",
+                        "tertiary-fixed-dim": "#444654",
+                        "surface-dim": "#f4f0f0",
+                        "inverse-surface": "#141212",
+                        "on-tertiary-fixed-variant": "#444654",
+                        "on-tertiary-fixed": "#191b27",
+                        "secondary-container": "#e1e1f5",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#1a1a1a",
+                        "on-surface-variant": "#49454f",
+                        "primary-fixed-dim": "#864e5a",
+                        "on-secondary-container": "#191b29",
+                        "primary-container": "#ffd9df",
+                        outline: "#938f99",
+                        "inverse-primary": "#fbb3c1",
+                        error: "#ba1a1a",
+                        "secondary-fixed": "#c5c5d8",
+                        "surface-tint": "#864e5a",
+                        secondary: "#45465f",
+                        "primary-fixed": "#ffd9df",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#191b29",
+                        tertiary: "#444654",
+                        "surface-container-low": "#faf6f6",
+                        "tertiary-container": "#e1e1f3",
+                        "surface-bright": "#fffbff",
+                        "on-background": "#1c1b1b",
+                        "inverse-on-surface": "#f4f0f0",
+                        primary: "#864e5a",
+                        "on-secondary-fixed-variant": "#444655",
+                        surface: "#fffbff",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#eeeaea",
+                        "surface-container-high": "#f4f0f0",
+                        "on-error-container": "#410002",
+                        "secondary-dim": "#c5c5d8",
+                        "tertiary-dim": "#c5c5d6",
+                        "primary-dim": "#fbb3c1",
+                        "error-dim": "#ffb4ab"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    },
+                    fontFamily: {
+                        headline: ["Noto Serif"],
+                        body: ["Plus Jakarta Sans"],
+                        label: ["Plus Jakarta Sans"],
+                        display: "Noto Serif"
+                    }
+                }
+            }
+        };
+    </script>
+<style>body {
+    background-color: #fdf8f8;
+    cursor: none;
+    overflow-x: hidden
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.bg-landscape {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(253, 248, 248, 0.4), rgba(253, 248, 248, 0.1)), url(https://lh3.googleusercontent.com/aida/ADBb0ujKrws3sqCMMSa33i2CSHPfZKj6lv9aojpf3pUYK88wwvo6P-nHvA4eBvC9MDzQ-HW8VqzP_56OmC-LPXO6H9hZRwUO3aiSm2UEduAh_QKe7nzkrLjfgjXoreYZDcM-LJ4N1tekz84Xg81hQT8H32iycstprFNj3FaDFQ4OSD8WrCfQZ4oxt9sYzB1AgtRh3pXtdMan3-lycA6VIT_KgNPabntOV8ZUmGgeznrvax68kN-VythlxZA_OvYG);
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    filter: contrast(1.05) saturate(0.85)
+    }
+.sakura-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden
+    }
+.custom-cursor {
+    width: 24px;
+    height: 24px;
+    background: #864e5a;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    filter: blur(8px);
+    mix-blend-mode: multiply;
+    opacity: 0.4;
+    transition: transform 0.1s ease-out
+    }
+.glow-text {
+    text-shadow: 0 0 20px rgba(134, 78, 90, 0.3), 0 0 40px rgba(134, 78, 90, 0.1)
+    }
+.glass-panel {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5)
+    }
+.cta-glow {
+    box-shadow: 0 0 20px rgba(255, 183, 197, 0.3), 0 0 40px rgba(255, 183, 197, 0.1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cta-glow:hover {
+    box-shadow: 0 15px 30px rgba(255, 183, 197, 0.5), 0 0 50px rgba(255, 183, 197, 0.2);
+    transform: translateY(-4px) scale(1.02);
+    background-color: rgba(255, 255, 255, 0.8) !important;
+}</style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<div class="bg-landscape"></div>
+<div class="custom-cursor" id="cursor"></div>
+<div class="sakura-container">
+<div class="absolute inset-0 opacity-10">
+<div class="absolute top-1/4 left-1/4 w-32 h-32 bg-primary rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 right-1/4 w-48 h-48 bg-secondary rounded-full blur-[150px]"></div>
+</div>
+</div>
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-3 bg-white/40 backdrop-blur-3xl rounded-full mt-6 mx-auto w-[90%] max-w-5xl shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-white/40">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-serif italic text-primary drop-shadow-sm">Kotoba</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-primary font-bold border-b border-primary/50 pb-1 font-sans tracking-wide text-xs" href="#">Translate</a>
+<a class="text-on-surface/70 hover:text-primary transition-colors duration-500 font-sans tracking-wide text-xs hover:bg-white/40 hover:backdrop-blur-3xl p-1 px-2 rounded-sm" href="#">Library</a>
+<a class="text-on-surface/70 hover:text-primary transition-colors duration-500 font-sans tracking-wide text-xs hover:bg-white/40 hover:backdrop-blur-3xl p-1 px-2 rounded-sm" href="#">Scholar</a>
+<a class="text-on-surface/70 hover:text-primary transition-colors duration-500 font-sans tracking-wide text-xs hover:bg-white/40 hover:backdrop-blur-3xl p-1 px-2 rounded-sm" href="#">About</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-primary hover:scale-110 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</nav>
+<main class="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6">
+<div class="relative mb-8">
+<span class="absolute -top-12 -left-16 text-primary/40 font-headline italic text-4xl select-none">こんにちは</span>
+<h1 class="font-headline italic text-7xl md:text-9xl text-primary glow-text tracking-tight mb-4">Kotoba</h1>
+<p class="font-body text-primary/90 text-lg md:text-2xl tracking-[0.3em] uppercase drop-shadow-md">Interactive Japanese Translator</p>
+</div>
+<div class="absolute bottom-24 left-1/2 -translate-x-1/2">
+<button class="group relative px-12 py-4 bg-white/60 backdrop-blur-3xl rounded-full border border-primary/30 transition-all duration-500 overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.1)] cta-glow hover:border-primary/40">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 group-hover:translate-x-full transition-transform duration-1000"></div>
+<span class="relative font-label tracking-widest text-primary uppercase text-sm font-semibold">Enter Experience</span>
+<div class="absolute -bottom-1 left-0 right-0 h-1 bg-primary/20 blur-sm opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</button>
+</div>
+</main>
+<section class="relative z-10 max-w-5xl mx-auto px-6 py-32 space-y-24">
+<div class="text-center space-y-6">
+<h2 class="font-headline italic text-5xl md:text-6xl text-on-surface leading-tight drop-shadow-sm">Wisdom Beyond <span class="text-primary glow-text">Vocabulary.</span></h2>
+<p class="text-on-surface font-body leading-relaxed mx-auto max-w-2xl text-lg md:text-xl drop-shadow-sm">
+            Kotoba isn't just a dictionary; it is a linguistic companion. We bridge the gap between literal translation and cultural nuance through an atmospheric, scholarly interface.
+        </p>
+<div class="pt-4 flex justify-center gap-4">
+<div class="h-[1px] w-12 bg-primary self-center"></div>
+<span class="font-label text-xs uppercase tracking-widest text-primary font-medium">The Moonlit Scholar</span>
+<div class="h-[1px] w-12 bg-primary self-center"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="glass-panel p-10 rounded-full border border-primary/20 space-y-4 hover:bg-white/80 transition-all duration-500 hover:-translate-y-2 text-center shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="auto_awesome">auto_awesome</span>
+<h3 class="font-headline text-2xl text-on-surface">Nuance Detection</h3>
+<p class="text-sm text-on-surface/80 leading-relaxed font-medium">
+                Automatically identifies honorifics, regional dialects, and emotional subtext in every sentence.
+            </p>
+</div>
+<div class="glass-panel p-10 rounded-full border border-primary/20 space-y-4 md:mt-12 hover:bg-white/80 transition-all duration-500 hover:-translate-y-2 text-center shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="menu_book">menu_book</span>
+<h3 class="font-headline text-2xl text-on-surface">Context Library</h3>
+<p class="text-sm text-on-surface/80 leading-relaxed font-medium">
+                A curated archive of literary excerpts and classical texts to deepen your linguistic journey.
+            </p>
+</div>
+<div class="glass-panel p-10 rounded-full border border-primary/20 space-y-4 hover:bg-white/80 transition-all duration-500 hover:-translate-y-2 text-center shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="brush">brush</span>
+<h3 class="font-headline text-2xl text-on-surface">Stroke Analysis</h3>
+<p class="text-sm text-on-surface/80 leading-relaxed font-medium">
+                Interactive kanji decomposition that reveals the history and etymology of every character.
+            </p>
+</div>
+</div>
+</section>
+<footer class="relative z-10 w-full flex flex-col items-center gap-4 py-16 bg-white/10 backdrop-blur-md">
+<div class="h-px w-32 bg-gradient-to-r from-transparent via-primary/40 to-transparent mb-4"></div>
+<div class="flex gap-12">
+<a class="text-on-surface/80 hover:text-primary transition-colors font-sans text-[10px] uppercase tracking-[0.2em] font-bold" href="#">Privacy</a>
+<a class="text-on-surface/80 hover:text-primary transition-colors font-sans text-[10px] uppercase tracking-[0.2em] font-bold" href="#">Terms</a>
+<a class="text-on-surface/80 hover:text-primary transition-colors font-sans text-[10px] uppercase tracking-[0.2em] font-bold" href="#">Discord</a>
+</div>
+<p class="font-sans text-[10px] uppercase tracking-[0.2em] text-primary font-bold mt-4">
+        © 2024 Kotoba — The Moonlit Scholar.
+    </p>
+</footer>
+<script>
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.transform = `translate(${e.clientX - 12}px, ${e.clientY - 12}px)`;
+    });
+</script>
+</body></html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kotoba Library - The Moonlit Scholar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#46464c",
+                        "tertiary-fixed-dim": "#c5c5d6",
+                        "on-primary-fixed": "#360c19",
+                        "surface-container-low": "#f6f3f2",
+                        "on-secondary-fixed-variant": "#444655",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#c5c5d8",
+                        "inverse-surface": "#313030",
+                        "on-tertiary-fixed-variant": "#444654",
+                        "tertiary-fixed": "#e1e1f3",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#f0edec",
+                        "on-tertiary-fixed": "#191b27",
+                        "on-primary-fixed-variant": "#6b3743",
+                        "outline-variant": "#c7c5cc",
+                        "surface-bright": "#fcf8f8",
+                        "background": "#fcf8f8",
+                        "tertiary": "#000000",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#ffd9df",
+                        "surface-dim": "#dcd9d9",
+                        "on-surface": "#1c1b1b",
+                        "on-error": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "surface-variant": "#e5e2e1",
+                        "surface-tint": "#864e5a",
+                        "primary": "#000000",
+                        "surface": "#fcf8f8",
+                        "inverse-primary": "#fbb3c1",
+                        "on-primary-container": "#b1727f",
+                        "surface-container-high": "#ebe7e7",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#fbb3c1",
+                        "on-secondary-fixed": "#191b29",
+                        "outline": "#77767c",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#360c19",
+                        "on-secondary-container": "#626374",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#e1e1f5",
+                        "tertiary-container": "#191b27",
+                        "secondary": "#5c5d6e",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#e1e1f5",
+                        "on-tertiary-container": "#828392"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 20px rgba(251, 179, 193, 0.2);
+        }
+        .glow-button {
+            box-shadow: 0 0 10px rgba(251, 179, 193, 0.3);
+            transition: all 0.3s ease;
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 20px rgba(251, 179, 193, 0.6);
+        }
+        .sakura-petal {
+            position: absolute;
+            background: #fbb3c1;
+            border-radius: 100% 0 100% 0;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface">
+<div class="relative min-h-screen w-full flex flex-col overflow-hidden">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0 bg-cover bg-center" data-alt="Serene misty mountain landscape with traditional Japanese pagoda in the distance and soft sunrise light illuminating the fog" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAS6ADwHDtonXUv9-SpxpKMRc6kioQnjWXCoZ-PuHrwmzOwZAQRoMzdLk-LHvliTcAS-Hqaz4ej-fQW7AVuxwgZea6PiOwfdfYlBMlMxDYraAk0RSat5lPRzPDqWm6GQazTT2Flg5M7j9U7fqdwKdDDYqGrOj-pquu1L9v1IQQthjmmdFyABgOf960DWpj0lh9Qt8z9QSmXxFSSKcDDceYCxu_MY_RRVJVRYEVHosCrK0kVNCuE-vCzmFteHYiZEIPYJFI8M6hVQCQD');"></div>
+<div class="absolute inset-0 z-10 bg-white/40 backdrop-blur-[2px]"></div>
+<!-- Floating Decorative Elements -->
+<div class="sakura-petal w-4 h-4 top-[10%] left-[5%] rotate-45"></div>
+<div class="sakura-petal w-3 h-3 top-[40%] right-[10%] -rotate-12"></div>
+<div class="sakura-petal w-5 h-5 bottom-[15%] left-[20%] rotate-90"></div>
+<div class="layout-container relative z-20 flex h-full grow flex-col">
+<!-- Navigation Anchor -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/20 px-10 py-4 backdrop-blur-md bg-white/20">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-6">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-primary font-headline text-xl font-bold tracking-tight">Kotoba</h2>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+<a class="text-on-surface hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-primary border-b-2 border-primary-fixed-dim" href="#">Library</a>
+<a class="text-on-surface hover:text-primary transition-colors" href="#">Learn</a>
+</nav>
+<div class="flex items-center gap-4">
+<label class="relative flex items-center">
+<span class="absolute left-3 text-on-surface-variant material-symbols-outlined" data-icon="search">search</span>
+<input class="h-10 w-64 rounded-full border-none bg-white/50 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary-fixed-dim backdrop-blur-sm placeholder:text-on-surface-variant" placeholder="Search manuscripts..." type="text"/>
+</label>
+<button class="flex h-10 w-10 items-center justify-center rounded-full bg-white/50 backdrop-blur-sm text-primary transition-all hover:bg-white/80">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 px-10 py-12">
+<div class="max-w-6xl mx-auto">
+<!-- Editorial Header -->
+<div class="mb-12 flex flex-col items-start gap-2">
+<span class="text-xs font-bold uppercase tracking-widest text-on-primary-fixed-variant opacity-70">Archive Collection</span>
+<h1 class="font-headline text-5xl font-bold text-primary tracking-tight" style="text-shadow: 0 0 12px rgba(251, 179, 193, 0.3);">Library Archive</h1>
+<p class="mt-2 text-on-surface-variant max-w-md">Your collection of translations, brush-strokes, and ancient manuscripts preserved in the moonlit study.</p>
+</div>
+<!-- Category Filters -->
+<div class="mb-8 flex flex-wrap gap-4">
+<button class="glow-button px-6 py-2 rounded-full bg-primary-fixed-dim text-on-primary-fixed font-semibold text-sm">All Manuscripts</button>
+<button class="px-6 py-2 rounded-full border border-white/40 bg-white/20 text-on-surface font-medium text-sm hover:bg-white/40 transition-all">Translations</button>
+<button class="px-6 py-2 rounded-full border border-white/40 bg-white/20 text-on-surface font-medium text-sm hover:bg-white/40 transition-all">Poetry (Haiku)</button>
+<button class="px-6 py-2 rounded-full border border-white/40 bg-white/20 text-on-surface font-medium text-sm hover:bg-white/40 transition-all">Calligraphy</button>
+</div>
+<!-- Grid of Glassmorphic Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="glass-card group flex flex-col p-6 rounded-xl transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="text-4xl font-headline text-primary">木漏れ日</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter bg-white/40 px-2 py-1 rounded">Vocabulary</span>
+</div>
+<h3 class="font-bold text-lg text-on-surface mb-2">Komorebi</h3>
+<p class="text-sm text-on-surface-variant line-clamp-2 italic mb-6">"Sunlight filtering through the leaves of trees..."</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-[10px] text-on-surface-variant font-medium">Modified 2h ago</span>
+<button class="flex items-center gap-1 text-primary-fixed-dim font-bold text-xs uppercase tracking-wider group-hover:text-on-primary-fixed-variant">
+                                    Expand <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card group flex flex-col p-6 rounded-xl transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="text-4xl font-headline text-primary">月見</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter bg-white/40 px-2 py-1 rounded">Poem</span>
+</div>
+<h3 class="font-bold text-lg text-on-surface mb-2">Tsukimi</h3>
+<p class="text-sm text-on-surface-variant line-clamp-2 italic mb-6">"Viewing the moon; a mid-autumn festival where one contemplates..."</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-[10px] text-on-surface-variant font-medium">Yesterday</span>
+<button class="flex items-center gap-1 text-primary-fixed-dim font-bold text-xs uppercase tracking-wider group-hover:text-on-primary-fixed-variant">
+                                    Expand <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-card group flex flex-col p-6 rounded-xl transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="text-4xl font-headline text-primary">侘寂</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter bg-white/40 px-2 py-1 rounded">Concept</span>
+</div>
+<h3 class="font-bold text-lg text-on-surface mb-2">Wabi-sabi</h3>
+<p class="text-sm text-on-surface-variant line-clamp-2 italic mb-6">"The aesthetic sense in Japanese art centering on the acceptance of transience..."</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-[10px] text-on-surface-variant font-medium">Oct 12, 2023</span>
+<button class="flex items-center gap-1 text-primary-fixed-dim font-bold text-xs uppercase tracking-wider group-hover:text-on-primary-fixed-variant">
+                                    Expand <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="glass-card group flex flex-col p-6 rounded-xl transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="text-4xl font-headline text-primary">幽玄</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter bg-white/40 px-2 py-1 rounded">Manuscript</span>
+</div>
+<h3 class="font-bold text-lg text-on-surface mb-2">Yūgen</h3>
+<p class="text-sm text-on-surface-variant line-clamp-2 italic mb-6">"An awareness of the universe that triggers emotional responses too deep and powerful for words..."</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-[10px] text-on-surface-variant font-medium">Oct 10, 2023</span>
+<button class="flex items-center gap-1 text-primary-fixed-dim font-bold text-xs uppercase tracking-wider group-hover:text-on-primary-fixed-variant">
+                                    Expand <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="glass-card group flex flex-col p-6 rounded-xl transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="text-4xl font-headline text-primary">懐かしい</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter bg-white/40 px-2 py-1 rounded">Vocabulary</span>
+</div>
+<h3 class="font-bold text-lg text-on-surface mb-2">Natsukashii</h3>
+<p class="text-sm text-on-surface-variant line-clamp-2 italic mb-6">"A word for nostalgia that means 'how dear' or 'how I missed this'..."</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-[10px] text-on-surface-variant font-medium">Oct 05, 2023</span>
+<button class="flex items-center gap-1 text-primary-fixed-dim font-bold text-xs uppercase tracking-wider group-hover:text-on-primary-fixed-variant">
+                                    Expand <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Add New Card -->
+<div class="border-2 border-dashed border-white/40 flex flex-col items-center justify-center p-6 rounded-xl hover:bg-white/20 transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-full bg-primary-fixed-dim flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-primary-fixed" data-icon="add">add</span>
+</div>
+<p class="text-sm font-bold text-on-surface-variant group-hover:text-primary transition-colors">New Manuscript</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Floating Action -->
+<div class="fixed bottom-8 right-8 z-30">
+<button class="glow-button flex h-16 w-16 items-center justify-center rounded-full bg-primary-fixed text-on-primary-fixed">
+<span class="material-symbols-outlined" data-icon="edit_note" style="font-size: 32px;">edit_note</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

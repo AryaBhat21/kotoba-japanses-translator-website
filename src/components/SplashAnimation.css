@@ -1,0 +1,152 @@
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--color-inverse-surface, #141212);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease;
+  overflow: hidden;
+}
+
+.splash.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  left: var(--px);
+  top: var(--py);
+  width: var(--size);
+  height: var(--size);
+  background: var(--color-primary-fixed, #ffd9df);
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(1px);
+  animation: float var(--duration) ease-in-out infinite alternate var(--delay);
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(0.8); opacity: 0; }
+  50% { opacity: 0.6; }
+  100% { transform: translateY(-40px) scale(1.2); opacity: 0; }
+}
+
+.ghost-kanji {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ghost {
+  position: absolute;
+  font-family: var(--font-headline);
+  font-size: 15rem;
+  color: var(--color-primary);
+  opacity: 0;
+  filter: blur(20px);
+  transform: scale(1.5) translateZ(0);
+  transition: all 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.ghost.ghost-visible {
+  opacity: 0.05;
+  filter: blur(8px);
+  transform: scale(1) translateZ(0);
+  transition-delay: var(--gdelay);
+}
+
+.logo-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  height: 120px;
+}
+
+.letter {
+  font-family: var(--font-headline);
+  font-size: 6rem;
+  font-style: italic;
+  font-weight: bold;
+  color: var(--color-primary);
+  display: inline-block;
+  opacity: 0;
+  transform: translate(var(--spread-x), var(--spread-y)) rotate(var(--spread-r)) scale(var(--spread-s));
+  transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: var(--delay);
+}
+
+.letter.gathered {
+  opacity: 1;
+  transform: translate(0, 0) rotate(0deg) scale(1);
+}
+
+.letter.glowing {
+  text-shadow: 0 0 20px rgba(251,179,193,0.5), 0 0 40px rgba(251,179,193,0.3);
+  color: var(--color-primary-fixed, #ffd9df);
+}
+
+.subtitle {
+  position: relative;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 1s ease 0.5s;
+  z-index: 10;
+}
+
+.subtitle.subtitle-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.subtitle-line {
+  height: 1px;
+  width: 40px;
+  background: var(--color-primary);
+  opacity: 0.5;
+}
+
+.subtitle-text {
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.bloom-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-primary) 0%, transparent 60%);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: all 1.5s cubic-bezier(0.1, 0.8, 0.2, 1);
+  pointer-events: none;
+  z-index: 5;
+  mix-blend-mode: screen;
+}
+
+.bloom-ring.bloom-visible {
+  transform: translate(-50%, -50%) scale(10);
+  opacity: 0.15;
+}

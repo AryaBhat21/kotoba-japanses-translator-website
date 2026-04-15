@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kotoba - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fcf8f8",
+                        "on-secondary-container": "#626374",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#444655",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#360c19",
+                        "outline-variant": "#c7c5cc",
+                        "on-tertiary-fixed": "#191b27",
+                        "on-tertiary-container": "#828392",
+                        "tertiary-fixed-dim": "#c5c5d6",
+                        "secondary-fixed": "#e1e1f5",
+                        "secondary-container": "#e1e1f5",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#fbb3c1",
+                        "primary-fixed": "#ffd9df",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#864e5a",
+                        "on-tertiary-fixed-variant": "#444654",
+                        "on-background": "#1c1b1b",
+                        "on-primary-container": "#b1727f",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e5e2e1",
+                        "background": "#fcf8f8",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#5c5d6e",
+                        "primary": "#000000",
+                        "tertiary": "#000000",
+                        "outline": "#77767c",
+                        "on-primary-fixed": "#360c19",
+                        "tertiary-container": "#191b27",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "secondary-fixed-dim": "#c5c5d8",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-container-high": "#ebe7e7",
+                        "on-primary-fixed-variant": "#6b3743",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fcf8f8",
+                        "inverse-surface": "#313030",
+                        "on-surface": "#1c1b1b",
+                        "surface-container": "#f0edec",
+                        "on-surface-variant": "#46464c",
+                        "tertiary-fixed": "#e1e1f3",
+                        "on-secondary-fixed": "#191b29",
+                        "surface-dim": "#dcd9d9",
+                        "primary-fixed-dim": "#fbb3c1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .text-glow {
+            text-shadow: 0 0 12px rgba(251, 179, 193, 0.4);
+        }
+        .neon-btn-glow {
+            box-shadow: 0 0 15px rgba(251, 179, 193, 0.2);
+        }
+        .neon-btn-glow:hover {
+            box-shadow: 0 0 25px rgba(251, 179, 193, 0.5);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .petal {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed overflow-hidden">
+<!-- Cinematic Background -->
+<div class="fixed inset-0 z-0">
+<img class="w-full h-full object-cover grayscale-[20%] contrast-[110%] brightness-[90%]" data-alt="Cinematic misty mountain landscape in Japan at dawn with ethereal light and soft fog rolling through pine trees" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKPBe277gCCPN0WYPjn88lABgeQ1LG1nWcWwn8wCt_SBuai3NJDUbG7uRFydj-q8nrIwcKJpYXYz6wH34gemaCaWOiOEQ-b0O_sQ851b54NcBfL2AbioJnLC7-ORzRSWNlaGrKvIojDKmFe8tlRZNrK8B20nscylkOHCr4zGKqC9VQc2Vb1jnxq2rVNhCT7A9gig0vYvKLNGbEFMzrCJA421Gd3ah0HPOdHcv2NZilPv2c1wrVJhh23w3AcmWnWuxZudQC9iHr7IGC"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-surface/40 via-transparent to-primary-container/20"></div>
+</div>
+<!-- Floating Petal Decorations (Simulated via spans) -->
+<div class="fixed inset-0 pointer-events-none z-10 overflow-hidden">
+<span class="petal material-symbols-outlined text-primary-fixed-dim text-xs top-[20%] left-[10%] opacity-40">filter_vintage</span>
+<span class="petal material-symbols-outlined text-primary-fixed-dim text-sm top-[60%] left-[80%] opacity-30">filter_vintage</span>
+<span class="petal material-symbols-outlined text-primary-fixed-dim text-[10px] top-[15%] left-[70%] opacity-50">filter_vintage</span>
+<span class="petal material-symbols-outlined text-primary-fixed-dim text-sm top-[85%] left-[30%] opacity-20">filter_vintage</span>
+</div>
+<!-- Navigation Shell (Suppressed for Login Focus - Minimal Brand Only) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-12 h-24">
+<div class="text-2xl font-headline italic text-on-primary drop-shadow-[0_0_12px_rgba(251,179,193,0.3)] select-none">
+            Kotoba
+        </div>
+<div class="hidden md:flex gap-8 items-center">
+<span class="text-on-primary/70 text-xs tracking-widest uppercase font-label">The Digital Sanctuary</span>
+</div>
+</header>
+<!-- Main Content: Login Form -->
+<main class="relative z-20 flex min-h-screen items-center justify-center p-6">
+<div class="glass-panel w-full max-w-md p-10 md:p-14 rounded-xl border border-white/20 shadow-2xl transition-all duration-500 hover:shadow-primary-fixed-dim/10">
+<div class="text-center mb-10">
+<h1 class="font-headline text-3xl md:text-4xl text-primary text-glow mb-3 leading-tight tracking-tight">
+                    Welcome back, Scholar.
+                </h1>
+<p class="text-on-surface-variant/80 text-sm font-label tracking-wide">
+                    Your path to mastery awaits in the quiet.
+                </p>
+</div>
+<form action="#" class="space-y-8">
+<!-- Email Field -->
+<div class="space-y-1 group">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-semibold ml-1" for="email">
+                        Email Address
+                    </label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest/40 border-0 border-b border-outline-variant/30 px-4 py-3 text-on-surface focus:ring-0 focus:border-primary-fixed-dim transition-all duration-300 placeholder:text-outline/50" id="email" placeholder="scholar@kotoba.jp" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-1 group">
+<div class="flex justify-between items-center">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-semibold ml-1" for="password">
+                            Password
+                        </label>
+<a class="text-[10px] uppercase tracking-widest text-on-primary-fixed-variant hover:text-primary-fixed-dim transition-colors" href="#">
+                            Forgot Password?
+                        </a>
+</div>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest/40 border-0 border-b border-outline-variant/30 px-4 py-3 text-on-surface focus:ring-0 focus:border-primary-fixed-dim transition-all duration-300 placeholder:text-outline/50" id="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Login CTA -->
+<div class="pt-4">
+<button class="w-full bg-primary text-on-primary font-label text-sm uppercase tracking-[0.2em] py-4 rounded-lg neon-btn-glow transform transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] active:scale-95" type="submit">
+                        Login
+                    </button>
+</div>
+</form>
+<!-- Footer Links -->
+<div class="mt-12 text-center">
+<p class="text-xs text-on-surface-variant/70 font-label">
+                    New to the sanctuary? 
+                    <a class="text-primary font-semibold hover:text-primary-fixed-dim transition-colors ml-1" href="#">
+                        Create an account
+                    </a>
+</p>
+</div>
+</div>
+</main>
+<!-- Footer (Minimal for Focused Journey) -->
+<footer class="fixed bottom-0 left-0 w-full z-50 py-8 px-12 flex justify-between items-end pointer-events-none">
+<div class="text-[9px] uppercase tracking-[0.3em] text-on-primary/40 font-label">
+            © 2024 Kotoba Japanese Translator
+        </div>
+<div class="flex gap-6 pointer-events-auto">
+<a class="text-[9px] uppercase tracking-[0.3em] text-on-primary/60 hover:text-on-primary transition-all" href="#">Privacy</a>
+<a class="text-[9px] uppercase tracking-[0.3em] text-on-primary/60 hover:text-on-primary transition-all" href="#">Terms</a>
+</div>
+</footer>
+<!-- Decorative Gradient Mesh for Depth -->
+<div class="fixed inset-0 z-[5] pointer-events-none bg-[radial-gradient(circle_at_20%_30%,rgba(251,179,193,0.05)_0%,transparent_50%),radial-gradient(circle_at_80%_70%,rgba(197,197,216,0.05)_0%,transparent_50%)]"></div>
+</body></html>
